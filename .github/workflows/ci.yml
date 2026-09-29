@@ -30,3 +30,14 @@ jobs:
           echo "Compilando $file"
           python -m py_compile "$file"
         done
+
+    - name: Generar reporte de integración continua
+      run: |
+        echo "### 📊 Reporte de Integración Continua (CI) - GESCONSOF" >> $GITHUB_STEP_SUMMARY
+        echo "| Componente | Estado | Detalle |" >> $GITHUB_STEP_SUMMARY
+        echo "|---|---|---|" >> $GITHUB_STEP_SUMMARY
+        echo "| **Entorno** | ✅ OK | Python 3.10 configurado correctamente |" >> $GITHUB_STEP_SUMMARY
+        echo "| **Dependencias** | ✅ OK | Flask instalado con éxito |" >> $GITHUB_STEP_SUMMARY
+        echo "| **Compilación** | ✅ OK | Archivos `.py` verificados sin errores de sintaxis |" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "> **Resultado**: Pipeline ejecutado exitosamente para la Sesión 3." >> $GITHUB_STEP_SUMMARY
