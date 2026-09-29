@@ -24,6 +24,9 @@ jobs:
         python -m pip install --upgrade pip
         pip install flask
 
-    - name: Validar sintaxis del archivo principal
+    - name: Mostrar estructura de archivos y compilar
       run: |
-        python -m py_compile Python-Flask-CRUD-App/app.py
+        echo "=== Estructura del repositorio ==="
+        find . -maxdepth 3 -not -path '*/.*'
+        echo "=== Compilando archivos Python encontrados ==="
+        python -m py_compile $(find . -name "*.py" -not -path "./.github/*")
