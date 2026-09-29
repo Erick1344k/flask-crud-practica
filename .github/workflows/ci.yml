@@ -24,9 +24,9 @@ jobs:
         python -m pip install --upgrade pip
         pip install flask
 
-    - name: Mostrar estructura de archivos y compilar
+    - name: Compilar archivos Python de la aplicación
       run: |
-        echo "=== Estructura del repositorio ==="
-        find . -maxdepth 3 -not -path '*/.*'
-        echo "=== Compilando archivos Python encontrados ==="
-        python -m py_compile $(find . -name "*.py" -not -path "./.github/*")
+        for file in $(find Python-Flask-CRUD-App -name "*.py"); do
+          echo "Compilando $file"
+          python -m py_compile "$file"
+        done
