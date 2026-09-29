@@ -22,9 +22,8 @@ jobs:
     - name: Instalar dependencias
       run: |
         python -m pip install --upgrade pip
-        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-        if [ -f Python-Flask-CRUD-App/requirements.txt ]; then pip install -r Python-Flask-CRUD-App/requirements.txt; fi
+        pip install flask
 
-    - name: Validar sintaxis
+    - name: Validar sintaxis de todos los archivos Python
       run: |
-        python -m py_compile App.py || python -m py_compile Python-Flask-CRUD-App/App.py
+        python -m py_compile $(find . -name "*.py")
